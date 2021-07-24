@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.theripe.work.dao.studentMapper">
+    <insert id="insert" parameterType="com.theripe.work.bean.Student">
+        insert into
+        student
+        values (#{name},#{sno},#{spassword})
+    </insert>
+    <select id="selectByIdAndPwd" parameterType="com.theripe.work.bean.Student" resultType="com.theripe.work.bean.Student">
+        select name,sno,spassword
+        from student
+        where sno=#{sno} and spassword = #{spassword}
+    </select>
+    <update id="updatePassword" parameterType="com.theripe.work.bean.Student">
+        update student
+        set spassword=#{spassword}
+    </update>
+</mapper>

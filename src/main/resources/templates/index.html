@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>这是成绩录入/查询系统</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<div class='gcs-login'>
+    <div class="gcs-login-panel">
+        <div class="login-title">
+            <a>请选择要登录的账户类型</a><br>
+        </div>
+            <div class="gcs-login-container">
+                <a th:href="@{/login/loginTeacher}"><button>教师登录</button></a>
+            </div>
+            <div class="gcs-login-container">
+                <a th:href="@{/login/loginStudent}"><button>学生登录</button></a>
+            </div>
+    </div>
+
+</div>
+</body>
+</html>

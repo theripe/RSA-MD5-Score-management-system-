@@ -1,0 +1,54 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>教师登录</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<script type="text/javascript" th:src="@{/js/jsencrypt.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    var publicKey ;
+    window.onload = function () {
+        // 获取ModelAndView中的公钥
+        publicKey = [[${publicKey}]];
+        // 打印
+
+    }
+    function exe() {
+        var encryptor = new JSEncrypt();
+        encryptor.setPublicKey(publicKey);
+        var password = document.getElementById("pwd").value
+        var res = encryptor.encrypt(password);
+        document.getElementById("pwd").value=res
+    }
+</script>
+<div class='gcs-login'>
+    <div class="gcs-login-panel">
+        <div class="login-title">
+            <h2>用户登陆</h2>
+        </div>
+        <div style="color:red" th:if="${not #strings.isEmpty(session.errorMsg)}" >
+            <div th:text="${session.errorMsg}"></div>
+        </div>
+        <form th:action="@{/login/loginDoT}" id="submit" method="post" onsubmit="exe()" >
+        <div class="gcs-login-container">
+            <input type="text" id="name" name="tName" placeholder="请输入账号" required="true" >
+        </div>
+        <div class="gcs-login-container">
+            <input type="password" id="pwd" name="tPwd" placeholder="请输入密码" required="true">
+        </div>
+        <br />
+        <br />
+        <div class="gcs-login-container">
+            <button type="submit" id="sub">登录</button>
+            <a th:href="@{/regist/teacher}"><button class="btn-login" type="button">注册</button></a>
+        </div>
+    </form>
+    </div>
+
+</div>
+</body>
+</html>

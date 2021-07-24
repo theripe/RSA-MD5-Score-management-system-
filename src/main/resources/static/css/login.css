@@ -1,0 +1,87 @@
+.gcs-login {
+
+    position: absolute;
+
+    right: 500px;
+
+    box-sizing: border-box;
+
+    width: 500px;
+
+    height: 100%;
+
+    background-color: #E6E6E6;
+
+    z-index: 100;
+
+}
+
+.gcs-login .gcs-login-panel{
+
+    height: 360px;
+
+    position:absolute;
+
+    margin:auto;
+
+    left: 0;
+
+    right: 0;
+
+    top:0;
+
+    bottom: 0;
+
+}
+
+.gcs-login .login-title {
+
+    text-align: center;
+
+    color: #62a8ea;
+
+}
+
+.gcs-login .login-title h2 {
+
+    letter-spacing: 10px;
+
+}
+
+.gcs-login-container {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    width: 100%;
+
+    margin: 20px 0 0;
+
+    text-align: center;
+
+}
+
+.gcs-login .input {
+
+    border: 1px solid white;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+
+    width: 80%;
+
+    height: 46px;
+
+    padding-left: 10px;
+
+    margin: 0 auto;
+
+    font-size: 14px;
+
+    outline: none;
+
+    color:  #76838f;
+
+}

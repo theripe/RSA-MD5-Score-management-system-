@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.theripe.work.dao.scoreMapper">
+    <insert id="insert" parameterType="com.theripe.work.bean.Score">
+        insert  into
+        score(sno,score,course)
+        values (#{sno},#{score},#{course});
+    </insert>
+
+    <select id="selectById" parameterType="java.lang.String" resultType="com.theripe.work.bean.Score">
+        select sno,score,course
+        from score
+        where sno = #{id}
+    </select>
+
+    <update id="update" parameterType="com.theripe.work.bean.Score">
+        update score
+        set score = #{score}
+        where sno = #{sno} and course = #{course}
+    </update>
+</mapper>

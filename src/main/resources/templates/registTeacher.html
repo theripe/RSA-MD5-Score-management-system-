@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>教师注册</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<script type="text/javascript" th:src="@{/js/jsencrypt.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    function exe() {
+        var data = {
+            'name':$("#name").val(),
+            'tno': $("#no").val(),
+            'tpassword': $("#pwd").val()
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/regist/teacher',
+            data: data,
+            success: function (result) {
+                alert("注册成功！")
+                window.location.href="/login/loginTeacher"
+            },
+            error:function (result) {
+                alert("注册失败")
+                document.getElementById("name").value = null
+                document.getElementById("no").value = null
+                document.getElementById("pwd").value = null
+            }
+
+        });
+    }
+</script>
+</form>
+<div class='gcs-login'>
+    <div class="gcs-login-panel">
+        <div class="login-title">
+            <h2>教师注册</h2>
+        </div>
+        <form >
+            <div class="gcs-login-container">
+                <input type="text" id="name" name="sName" placeholder="请输入姓名" required="true" >
+            </div>
+            <div class="gcs-login-container">
+                <input type="text" id="no" name="sName" placeholder="请输入账号" required="true" >
+            </div>
+            <div class="gcs-login-container">
+                <input type="password" id="pwd" name="sPwd" placeholder="请输入密码" required="true">
+            </div>
+            <br />
+            <br />
+            <div class="gcs-login-container">
+                <button type="button" id="sub" th:text="注册" onclick="exe()"></button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

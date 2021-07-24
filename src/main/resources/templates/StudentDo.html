@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生的主页</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<script type="text/javascript" th:src="@{/js/jsencrypt.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<div class="login-title">
+    <h2 >查询自己成绩</h2>
+</div>
+<form th:action="@{/do/selectS}" method="post">
+    <div class="gcs-login-container">
+        <input type="text" id="sno" name="sno" placeholder="请输入学号" required="true" >
+    </div>
+    <br />
+    <br />
+    <div class="gcs-login-container">
+        <input type="submit" id="select"  style="background-color: aquamarine" value="查询"></input>
+    </div>
+</form>
+
+
+</body>
+</html>
